@@ -119,6 +119,63 @@
         .tentang-hero .overlay {
             background: linear-gradient(90deg, rgba(70,7,78,0.8), rgba(25,123,208,0));
         }
+        .artikel-card {
+            background: transparent;
+            border: none;
+            transition: transform 0.3s ease;
+        }
+        .artikel-card:hover {
+            transform: translateY(-5px);
+        }
+        .artikel-card img {
+            transition: transform 0.4s ease;
+        }
+        .artikel-card:hover img {
+            transform: scale(1.03);
+        }
+        #artikel h6 {
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+        .tentang-hero {
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .tentang-hero img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            filter: brightness(80%);
+        }
+
+        .tentang-hero .overlay {
+            background: linear-gradient(90deg, rgba(70,7,78,0.8), rgba(25,123,208,0));
+        }
+        /* Hero umum untuk Artikel & Hubungi Kami */
+        .artikel-hero, .kontak-hero {
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .artikel-hero img, .kontak-hero img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            filter: brightness(80%);
+        }
+
+        .artikel-hero .overlay, .kontak-hero .overlay {
+            background: linear-gradient(90deg, rgba(75,0,85,0.8), rgba(47,128,237,0));
+        }
+        .footer {
+            background: linear-gradient(90deg, #4B0055, #3892E0);
+            color: white;
+            font-size: 0.9rem;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
     </style>
 </head>
 <body>
@@ -152,10 +209,10 @@
                     <a class="nav-link {{ request()->is('layanan-kami') ? 'active' : '' }}" href="{{ route('layanan') }}">Layanan Kami</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->is('artikel') ? 'active' : '' }}" href="#artikel">Artikel</a>
+                    <a class="nav-link {{ request()->is('artikel') ? 'active' : '' }}" href="{{ route('artikel') }}">Artikel</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->is('kontak') ? 'active' : '' }}" href="#kontak">Hubungi Kami</a>
+                    <a class="nav-link {{ request()->is('kontak') ? 'active' : '' }}" href="{{ route('kontak') }}">Hubungi Kami</a>
                 </li>
             </ul>
 
@@ -194,11 +251,16 @@
     </main>
 
     {{-- Footer --}}
-    <footer>
-        <p class="m-0">© 2025 Klug Indonesia. All Rights Reserved.</p>
-    </footer>
+<footer class="footer">
+    <div class="container text-center py-3">
+        <p class="m-0 text-white">
+            Copyright © 2020 - Inaklug Indonesia | Hak cipta dilindungi undang-undang
+        </p>
+    </div>
+</footer>
 
     {{-- JS Bootstrap --}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    @stack('scripts')
 </body>
 </html>
